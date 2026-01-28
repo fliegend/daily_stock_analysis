@@ -468,9 +468,11 @@ class StockAnalysisPipeline:
         start_time = time.time()
         
         # 使用配置中的股票列表
-        if stock_codes is None:
-            self.config.refresh_stock_list()
-            stock_codes = self.config.stock_list
+        # if stock_codes is None:
+        #     self.config.refresh_stock_list()
+        #     stock_codes = self.config.stock_list
+        self.config.refresh_stock_list()
+        stock_codes = self.config.stock_list
         
         if not stock_codes:
             logger.error("未配置自选股列表，请在 .env 文件中设置 STOCK_LIST")
